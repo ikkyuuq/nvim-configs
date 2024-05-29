@@ -28,7 +28,7 @@ key.set("n", "<leader>sh", ":split<CR>")
 -- Press 'F' to format the entire buffer
 key.set("n", "F", function()
   local cursor_pos = vim.api.nvim_win_get_cursor(0)
-  vim.cmd('normal! gg=G')
+  vim.cmd('normal! gg=Gzz')
   vim.api.nvim_win_set_cursor(0, cursor_pos)
 end)
 
