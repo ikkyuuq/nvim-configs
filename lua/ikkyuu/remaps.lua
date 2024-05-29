@@ -25,14 +25,17 @@ key.set("n", "<leader>m", ":MaximizerToggle<CR>")
 key.set("n", "<leader>sv", ":vsplit<CR>")
 key.set("n", "<leader>sh", ":split<CR>")
 
-key.set("n", "<leader>fo", "ggVG=")
-
+-- Press 'Space + s' to search for the word under the cursor and replace all inline
+key.set("n", "<leader>s", [[:s/\<<C-r><C-w>\>//gI<Left><Left><Left>]])
 -- Press 'S' for quick find/replace for the word under the cursor_row
 key.set("n", "S", function()
   local cmd = ":%s/<C-r><C-w>/<C-r><C-w>/gI<Left><Left><Left>"
   local keys = vim.api.nvim_replace_termcodes(cmd, true, false, true)
   vim.api.nvim_feedkeys(keys, "n", false)
 end)
+
+-- Press 'Space + fo' to format the whole file
+key.set("n", "<leader>fo", "ggVG=")
 
 -- Center buffer while navigating
 key.set("n", "<C-u>", "<C-u>zz")
