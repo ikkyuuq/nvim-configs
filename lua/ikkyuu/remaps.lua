@@ -27,9 +27,9 @@ key.set("n", "<leader>sh", ":split<CR>")
 
 -- Git remaps
 key.set("n", "<leader>gs", ":G<CR>")
-key.set("n", "<leader>gc", ":G commit<CR>")
-key.set("n", "<leader>gp", ":G push<CR>")
-key.set("n", "<leader>gl", ":G pull<CR>")
+key.set("n", "<leader>gc", ':G commit -m ""<Left>')
+key.set("n", "<leader>gp", ":G push ")
+key.set("n", "<leader>gl", ":G pull ")
 key.set("n", "<leader>gb", ":G blame<CR>")
 
 -- Copilot remaps
