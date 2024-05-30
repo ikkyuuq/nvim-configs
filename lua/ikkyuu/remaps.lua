@@ -1,4 +1,4 @@
-local key = key
+local key = vim.keymap
 
 key.set("n", "<leader>pv", ":Explore<CR>")
 
@@ -24,6 +24,11 @@ key.set("n", "<c-l>", ":wincmd l<CR>")
 key.set("n", "<leader>m", ":MaximizerToggle<CR>")
 key.set("n", "<leader>sv", ":vsplit<CR>")
 key.set("n", "<leader>sh", ":split<CR>")
+
+-- Git remaps
+key.set("n", "<leader>gs", ":G<CR>")
+-- Please give me a key for commit that can entering the commit message directly
+key.set("n", "<leader>gc", ":G commit<CR>")
 
 -- Copilot remaps
 vim.g.copilot_no_tab_map = true
