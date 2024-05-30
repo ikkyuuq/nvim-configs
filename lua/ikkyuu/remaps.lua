@@ -27,7 +27,6 @@ key.set("n", "<leader>sh", ":split<CR>")
 
 -- Git remaps
 key.set("n", "<leader>gs", ":G<CR>")
--- Please give me a key for commit that can entering the commit message directly
 key.set("n", "<leader>gc", ":G commit<CR>")
 key.set("n", "<leader>gp", ":G push<CR>")
 key.set("n", "<leader>gl", ":G pull<CR>")
