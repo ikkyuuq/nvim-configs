@@ -1,4 +1,4 @@
-local key = vim.keymap
+local key = key
 
 key.set("n", "<leader>pv", ":Explore<CR>")
 
@@ -24,6 +24,16 @@ key.set("n", "<c-l>", ":wincmd l<CR>")
 key.set("n", "<leader>m", ":MaximizerToggle<CR>")
 key.set("n", "<leader>sv", ":vsplit<CR>")
 key.set("n", "<leader>sh", ":split<CR>")
+
+-- Copilot remaps
+vim.g.copilot_no_tab_map = true
+key.set('i', '<C-a>', 'copilot#Accept("\\<CR>")', {
+  expr = true,
+  replace_keycodes = false
+})
+key.set('i', '<C-]>', '<Plug>(copilot-dismiss)')
+key.set('i', '<C-j>', '<Plug>(copilot-previous)')
+key.set('i', '<C-k>', '<Plug>(copilot-previous)')
 
 -- Press 'F' to format the entire buffer
 key.set("n", "F", function()
