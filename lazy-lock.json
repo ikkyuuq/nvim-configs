@@ -26,9 +26,11 @@
   "nvim-ts-autotag": { "branch": "main", "commit": "8ae54b90e36ef1fc5267214b30c2cbff71525fe4" },
   "nvim-web-devicons": { "branch": "master", "commit": "b77921fdc44833c994fdb389d658ccbce5490c16" },
   "plenary.nvim": { "branch": "master", "commit": "a3e3bc82a3f95c5ed0d7201546d5d2c19b20d683" },
+  "supermaven-nvim": { "branch": "main", "commit": "5283a6c57fb69ceff7505b1a2267714bda0dafa0" },
   "symbols-outline.nvim": { "branch": "master", "commit": "564ee65dfc9024bdde73a6621820866987cbb256" },
   "telescope.nvim": { "branch": "0.1.x", "commit": "a0bbec21143c7bc5f8bb02e0005fa0b982edc026" },
   "undotree": { "branch": "master", "commit": "56c684a805fe948936cda0d1b19505b84ad7e065" },
+  "vim-be-good": { "branch": "master", "commit": "4fa57b7957715c91326fcead58c1fa898b9b3625" },
   "vim-fugitive": { "branch": "master", "commit": "4f59455d2388e113bd510e85b310d15b9228ca0d" },
   "vim-maximizer": { "branch": "master", "commit": "2e54952fe91e140a2e69f35f22131219fcd9c5f1" }
 }
