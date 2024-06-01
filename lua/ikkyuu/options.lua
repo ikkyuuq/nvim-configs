@@ -45,7 +45,7 @@ vim.opt.smartcase = true
 vim.opt.updatetime = 250
 
 -- Set completeopt to have a better completion experience
-vim.opt.completeopt = { "menuone", "noselect" }
+vim.opt.completeopt = { "menu", "menuone", "noselect" }
 
 -- Enable persistent undo history
 vim.opt.undofile = true
@@ -64,3 +64,5 @@ vim.opt.cursorline = true
 
 -- Always keep 8 lines above/below cursor unless at start/end of file
 vim.opt.scrolloff = 8
+
+vim.api.nvim_set_hl(0, "CmpItemKindSupermaven", { fg = "#ffd900" })
