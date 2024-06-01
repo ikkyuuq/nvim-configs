@@ -25,6 +25,11 @@ key.set("n", "<leader>m", ":MaximizerToggle<CR>")
 key.set("n", "<leader>sv", ":vsplit<CR>")
 key.set("n", "<leader>sh", ":split<CR>")
 
+-- Toogle cmp
+key.set("n", "<leader>cm", function()
+  require("ikkyuu.IkkyuuPlugins.toggle-cmp").toggle_cmp()
+end, { desc = "Toggle cmp" })
+
 -- Git remaps
 key.set("n", "<leader>gs", ":G<CR>")
 key.set("n", "<leader>gc", ':G commit -m ""<Left>')
@@ -32,18 +37,8 @@ key.set("n", "<leader>gp", ":G push ")
 key.set("n", "<leader>gl", ":G pull ")
 key.set("n", "<leader>gb", ":G blame<CR>")
 
--- Copilot remaps
-vim.g.copilot_no_tab_map = true
-key.set('i', '<C-a>', 'copilot#Accept("\\<CR>")', {
-  expr = true,
-  replace_keycodes = false
-})
-key.set('i', '<C-]>', '<Plug>(copilot-dismiss)')
-key.set('i', '<C-j>', '<Plug>(copilot-previous)')
-key.set('i', '<C-k>', '<Plug>(copilot-previous)')
-
 -- Press 'F' to format the entire buffer
-key.set("n", "F", function()
+key.set("n", "<leader>fo", function()
   local cursor_pos = vim.api.nvim_win_get_cursor(0)
   vim.cmd('normal! gg=Gzz')
   vim.api.nvim_win_set_cursor(0, cursor_pos)
