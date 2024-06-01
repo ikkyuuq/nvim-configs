@@ -2,9 +2,6 @@
 
 return {
   {
-    "github/copilot.vim",
-  },
-  {
     "hrsh7th/nvim-cmp",
     event = { "BufReadPost", "BufNewFile" },
     dependencies = {
@@ -46,26 +43,19 @@ return {
           documentation = cmp.config.window.bordered(),
         },
         mapping = cmp.mapping.preset.insert({
-          ["<C-k>"] = cmp.mapping.select_prev_item(), -- previous suggestion
-          ["<C-j>"] = cmp.mapping.select_next_item(), -- next suggestion
-          ["<Tab>"] = cmp.mapping(function(fallback)
-            if cmp.visible() then
-              cmp.select_next_item()
-            elseif luasnip.expand_or_jumpable() then
-              luasnip.expand_or_jump()
-            else
-              fallback()
-            end
-          end, { "i", "s" }),
-          ["<S-Tab>"] = cmp.mapping(function(fallback)
-            if cmp.visible() then
-              cmp.select_prev_item()
-            elseif luasnip.jumpable(-1) then
-              luasnip.jump(-1)
-            else
-              fallback()
-            end
-          end, { "i", "s" }),
+          ["<C-t>"] = cmp.mapping({
+            i = function()
+              if cmp.visible() then
+                cmp.abort()
+                require("ikkyuu.IkkyuuPlugins.toggle-cmp").toggle_cmp()
+              else
+                cmp.complete()
+                require("ikkyuu.IkkyuuPlugins.toggle-cmp").toggle_cmp()
+              end
+            end,
+          }),
+          ["<C-k>"] = cmp.mapping.select_prev_item(),        -- previous suggestion
+          ["<C-j>"] = cmp.mapping.select_next_item(),        -- next suggestion
           ["<C-u>"] = cmp.mapping.scroll_docs(-4),           -- scroll up preview
           ["<C-d>"] = cmp.mapping.scroll_docs(4),            -- scroll down preview
           ["<C-Space>"] = cmp.mapping.complete({}),          -- show completion suggestions
@@ -74,11 +64,18 @@ return {
         }),
         -- sources for autocompletion
         sources = cmp.config.sources({
-          { name = "copilot" },
-          { name = "nvim_lsp" },                    -- lsp
-          { name = "buffer",  max_item_count = 5 }, -- text within current buffer
-          { name = "path",    max_item_count = 3 }, -- file system paths
-          { name = "luasnip", max_item_count = 3 }, -- snippets
+          { name = "supermaven" },
+          { name = "nvim_lsp" },                      -- lsp
+          { name = "path",      max_item_count = 3 }, -- file system paths
+          { name = "luasnip",   max_item_count = 3 }, -- snippets
+        }, {
+          { name = "buffer" },
+        }),
+
+        lspkind.init({
+          symbol_map = {
+            Supermaven = "",
+          }
         }),
         -- Enable pictogram icons for lsp/autocompletion
         formatting = {
@@ -88,12 +85,9 @@ return {
             maxwidth = 50,
             ellipsis_char = "...",
             symbol_map = {
-              Copilot = "",
+              Supermaven = "",
             },
           }),
-        },
-        experimental = {
-          ghost_text = true,
         },
       })
     end,
